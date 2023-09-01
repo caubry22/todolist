@@ -44,7 +44,12 @@ let TodosService = class TodosService {
         }
     }
     async remove(id) {
-        return this.todoRepository.delete(id);
+        try {
+            return this.todoRepository.delete(id);
+        }
+        catch (error) {
+            return error;
+        }
     }
 };
 exports.TodosService = TodosService;

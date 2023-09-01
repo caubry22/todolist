@@ -38,6 +38,10 @@ export class TodosService {
   }
 
   async remove(id: number): Promise<DeleteResult> {
-    return this.todoRepository.delete(id);
+    try {
+      return this.todoRepository.delete(id);
+    } catch (error) {
+      return error;
+    }
   }
 }
